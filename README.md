@@ -2,6 +2,8 @@
 
 A compact remote-sensing portfolio project comparing a PyTorch U-Net semantic-segmentation model with a Random Forest pixel-classification baseline on labelled high-resolution aerial imagery from LandCover.ai.
 
+> **Scope:** This is an exploratory prototype using RGB aerial imagery. It is not a reproduction of CESBIO's multi-year Sentinel-2 OSO land-cover mapping pipeline.
+
 ## Project objectives
 
 - Prepare labelled aerial imagery as image patches and segmentation masks.
@@ -23,11 +25,41 @@ These are the actual reported results from this run, not benchmark results. The 
 
 ### Prediction comparison
 
-![Held-out patch comparison](images/U-Net&RF_test_prediction_comparison.png)
+![Held-out patch comparison](images/test_prediction_comparison.png)
 
 ### Training curves
 
 ![U-Net training and validation curves](images/training_curves.png)
+
+## Full classification results
+
+### Aggregate metrics
+
+| Metric | Weighted U-Net | Balanced Random Forest |
+|---|---:|---:|
+| Test mIoU | 0.2774 | 0.2263 |
+| Test mean Dice | 0.3516 | 0.3355 |
+| Accuracy | 0.74 | 0.52 |
+| Macro precision | 0.36 | 0.34 |
+| Macro recall | 0.36 | 0.51 |
+| Macro F1-score | 0.35 | 0.34 |
+| Weighted precision | 0.72 | 0.67 |
+| Weighted recall | 0.74 | 0.52 |
+| Weighted F1-score | 0.73 | 0.57 |
+
+### Class-level precision, recall, F1-score and test support
+
+| Class | U-Net precision | U-Net recall | U-Net F1 | RF precision | RF recall | RF F1 | Test support |
+|---|---:|---:|---:|---:|---:|---:|---:|
+| Background | 0.77 | 0.82 | 0.80 | 0.75 | 0.49 | 0.59 | 3,699,218 |
+| Building | 0.01 | 0.00 | 0.00 | 0.03 | 0.57 | 0.06 | 25,259 |
+| Woodland | 0.77 | 0.77 | 0.77 | 0.64 | 0.56 | 0.60 | 2,733,621 |
+| Water | 0.15 | 0.05 | 0.08 | 0.26 | 0.54 | 0.35 | 397,767 |
+| Road | 0.09 | 0.16 | 0.11 | 0.04 | 0.39 | 0.08 | 90,951 |
+| **Macro average** | **0.36** | **0.36** | **0.35** | **0.34** | **0.51** | **0.34** | **6,946,816** |
+| **Weighted average** | **0.72** | **0.74** | **0.73** | **0.67** | **0.52** | **0.57** | **6,946,816** |
+
+U-Net performed better on aggregate mIoU, mean Dice, accuracy and weighted F1 in this run. Random Forest had higher recall for several minority classes but low precision, indicating many false positives. Both models struggled with building detection.
 
 ## Dataset
 
