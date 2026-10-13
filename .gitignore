@@ -1,0 +1,19 @@
+# Data and model artifacts
+data/
+landcover.ai*/
+*.tif
+*.tiff
+*.zip
+*.pth
+*.pt
+*.joblib
+*.pkl
+
+# Notebook checkpoints
+.ipynb_checkpoints/
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
