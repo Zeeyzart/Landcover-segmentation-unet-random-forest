@@ -35,7 +35,7 @@
 | **Weighted average** | **0.72** | **0.74** | **0.73** | **6,946,816** | **0.67** | **0.52** | **0.57** | **6,946,816** |
 
 ## Interpretation
-U-Net achieved higher aggregate mIoU and mean Dice. The balanced Random Forest improved from the earlier unbalanced run (mIoU 0.0787, mean Dice 0.1130) to mIoU 0.2263 and mean Dice 0.3355. Random Forest had higher recall for building, water and road pixels, but low precision indicates many false positives. Building detection remained weak for both models.
+U-Net had a higher aggregate mIoU and mean Dice. The balanced Random Forest improved from the earlier unbalanced run (mIoU 0.0787, mean Dice 0.1130) to mIoU 0.2263 and mean Dice 0.3355. Random Forest had higher recall for building, water and road pixels, but low precision indicates many false positives. Building detection remained weak for both models.
 
-## Evaluation caveat
+## Evaluation issues
 Patches were randomly split after patch extraction. Neighbouring patches from the same original source image may occur across train, validation and test sets. A source-image-level split is needed for a stronger generalisation estimate. Results are exploratory, not a rigorous benchmark.
