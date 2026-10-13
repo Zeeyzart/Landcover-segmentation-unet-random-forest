@@ -23,7 +23,7 @@ These are the actual reported results from this run, not benchmark results. The 
 
 ### Prediction comparison
 
-![Held-out patch comparison](images/U-Net & RF _test_prediction_comparison.png)
+![Held-out patch comparison](images/UNet&RF_test_prediction_comparison.png)
 
 ### Training curves
 
