@@ -2,8 +2,6 @@
 
 A compact remote-sensing portfolio project comparing a PyTorch U-Net semantic-segmentation model with a Random Forest pixel-classification baseline on labelled high-resolution aerial imagery from LandCover.ai.
 
-> **Scope:** This is an exploratory prototype using RGB aerial imagery. It is not a reproduction of CESBIO's multi-year Sentinel-2 OSO land-cover mapping pipeline.
-
 ## Project objectives
 
 - Prepare labelled aerial imagery as image patches and segmentation masks.
@@ -25,7 +23,7 @@ These are the actual reported results from this run, not benchmark results. The 
 
 ### Prediction comparison
 
-![Held-out patch comparison](images/test_prediction_comparison.png)
+![Held-out patch comparison](images/U-Net&RF_test_prediction_comparison.png)
 
 ### Training curves
 
